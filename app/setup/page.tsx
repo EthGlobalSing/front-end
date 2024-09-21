@@ -5,8 +5,12 @@ import { NoSafeErrorDisplay } from "./components/NoSafeErrorDisplay";
 import { useEffect, useState } from 'react';
 import { SafeDetectedDisplay } from "./components/SafeDetectedDisplay";
 import { CircularProgress } from "@nextui-org/react";
-// import { dynamic_env } from "../environment/dynamic";
-import { DynamicWidget, useDynamicContext, useTelegramLogin } from "@dynamic-labs/sdk-react-core";
+import {
+    DynamicWidget,
+    useTelegramLogin,
+    useDynamicContext,
+} from "../lib/dynamic";
+// import { DynamicWidget, useDynamicContext, useTelegramLogin } from "@dynamic-labs/sdk-react-core";
 
 export default function Setup() {
     const { sdkHasLoaded, user } = useDynamicContext();
