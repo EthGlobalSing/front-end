@@ -9,7 +9,7 @@ export function NoSafeErrorDisplay() {
             <h1 className={`${dmSerifText.className} text-lightGreen text-3xl `}>No SafeWallet found.</h1>
         </div>
         <div className="flex gap-2">
-            <Link href='setup' className='w-full w-1/2'><Button className='bg-lightGreen text-darkGreen font-bold w-full'>Add</Button></Link>
+            <Link href='showSetup' className='w-full w-1/2'><Button className='bg-lightGreen text-darkGreen font-bold w-full'>Add</Button></Link>
             <Link href='/' className="text-lightGreen w-1/2 flex justify-center">Back</Link>
         </div>
     </div>);

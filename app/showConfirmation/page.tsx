@@ -38,7 +38,7 @@ export default function ShowConfirmation() {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <Link href='setup' className='w-full w-1/2'><Button className='bg-darkGreen text-lightGreen font-bold w-full'>Send</Button></Link>
+                        <Link href='showSetup' className='w-full w-1/2'><Button className='bg-darkGreen text-lightGreen font-bold w-full'>Send</Button></Link>
                         <Link href='/' className="text-darkGreen w-1/2 flex justify-center">Back</Link>
                     </div>
                 </div>

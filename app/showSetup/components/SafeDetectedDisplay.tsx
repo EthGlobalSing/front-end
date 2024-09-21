@@ -23,7 +23,7 @@ export function SafeDetectedDisplay({ safeWallets }: SafeDetectedDisplayProps) {
             })}
         </div>
         <div className="flex gap-2">
-            <Link href='setup' className='w-full'><Button className='bg-lightGreen text-darkGreen font-bold w-full'>Ok</Button></Link>
+            <Link href='showSetup' className='w-full'><Button className='bg-lightGreen text-darkGreen font-bold w-full'>Ok</Button></Link>
         </div>
     </div>);
 }

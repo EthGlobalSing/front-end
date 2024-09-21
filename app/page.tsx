@@ -62,7 +62,6 @@ export default function Home() {
             <>
               <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />
               <h2 className={`${dmSerifText.className} text-lightGreen text-3xl `}>An error occurred. Please try again.</h2>
-              <DynamicWidget />
             </>
         }
       </main>
