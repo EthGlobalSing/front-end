@@ -59,7 +59,7 @@ export default function ShowConfirmation() {
                     <div className="flex gap-2">
                         <Link className='w-full w-1/2' onClick={() => {
                             WebApp.HapticFeedback.impactOccurred('heavy');
-                            SignMessage();
+                            // SignMessage();
                         }}><Button className='bg-darkGreen text-lightGreen font-bold w-full'>Send</Button></Link>
                         <Link href='/' className="text-darkGreen w-1/2 flex justify-center" onClick={() => { WebApp.HapticFeedback.impactOccurred('light'); }}>Back</Link>
                     </div>
