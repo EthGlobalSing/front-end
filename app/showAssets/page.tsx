@@ -35,7 +35,7 @@ export default function ShowAssets() {
                 <CircularProgress className='m-auto' color="default" aria-label="Loading..." />
             ) : (
                 <>
-                    <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+                    <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />
                     <div className='p-10 min-h-screen flex flex-col gap-12 items-center'>
                         <div className="flex flex-col gap-6">
                             <h1 className={`${dmSerifText.className} text-lightGreen text-3xl`}>$839.29</h1>
