@@ -9,7 +9,7 @@ interface SafeDetectedDisplayProps {
 }
 
 export function SafeDetectedDisplay({ safeWallets }: SafeDetectedDisplayProps) {
-    return (<div className='w-3/4 min-h-screen flex flex-col gap-12'>
+    return (<div className='w-3/4 min-h-screen flex flex-col gap-12 m-auto'>
         <div className="flex flex-col gap-6">
             <CircleCheck className="text-lightGreen" size={36} strokeWidth={1.5} />
             <h1 className={`${dmSerifText.className} text-lightGreen text-3xl`}>{safeWallets.length} Safe Wallet found.</h1>
