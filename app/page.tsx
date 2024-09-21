@@ -17,6 +17,7 @@ import {
   useTelegramLogin,
   useDynamicContext,
 } from "./lib/dynamic";
+import eruda from 'eruda';
 
 interface UserData {
   username?: string;
@@ -26,15 +27,27 @@ export default function Home() {
   const { sdkHasLoaded, user } = useDynamicContext();
   const { telegramSignIn } = useTelegramLogin();
 
+  const [isBiometricUserConnected, setIsBiometricUserConnected] = useState(false);
   const [userData, setUserData] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    // if (WebApp.BiometricManager.isBiometricAvailable) {
+    //   WebApp.BiometricManager.requestAccess({ reason: 'Allow Telegram to access your MiniSafe' }, () => {
+    //   });
+
+    //   WebApp.BiometricManager.authenticate({ reason: 'Allow Telegram to access your MiniSafe' }, () => {
+    //     setIsBiometricUserConnected(true);
+    //   });
+    // }
+
     if (WebApp.initDataUnsafe.user) {
       setUserData(WebApp.initDataUnsafe.user as UserData)
     }
+
+    eruda.init()
   }, [])
 
   useEffect(() => {
@@ -54,10 +67,10 @@ export default function Home() {
   return (
     <>
       <main className={`bg-darkGreen p-10 min-h-screen`}>
-        {loading ? (
+        {(!isBiometricUserConnected || loading) ? (
           <CircularProgress className='m-auto' color="default" aria-label="Loading..." />
         ) :
-          userData ? <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
+          userData ? <><WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} /><DynamicWidget /></>
             :
             <>
               <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />

@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import { SafeDetectedDisplay } from "./components/SafeDetectedDisplay";
 import { CircularProgress } from "@nextui-org/react";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
+import { NavBar } from "../components/NavBar";
+import eruda from 'eruda'
+
 
 interface SetupProps {
 
@@ -13,6 +16,11 @@ interface SetupProps {
 
 export default function ShowSetup({ }: SetupProps) {
     const [loading, setLoading] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        eruda.init()
+    }, [])
     //const [safeWallets, setSafeWallets] = useState<Safe[]>();
 
     // [{
@@ -22,13 +30,14 @@ export default function ShowSetup({ }: SetupProps) {
     //     addresses: ["0xZJdhb28dJ", "0xZJdhb28dJ"]
     // }]
 
-
-
-    return (<main className={`p-10 bg-darkGreen min-h-screen`}>
-        {loading ? <CircularProgress className='m-auto' color="default" aria-label="Loading..." /> :
-            //<SafeDetectedDisplay safeWallets={safeWallets} />
-            <DynamicWidget />
-        }
-        {/* <NoSafeErrorDisplay /> */}
-    </main>);
+    return (<>
+        <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />
+        <main className={`p-10 bg-darkGreen min-h-screen`}>
+            {loading ? <CircularProgress className='m-auto' color="default" aria-label="Loading..." /> :
+                // <SafeDetectedDisplay safeWallets={safeWallets} />
+                <DynamicWidget />
+            }
+            {/* <NoSafeErrorDisplay /> */}
+        </main>
+    </>);
 }
