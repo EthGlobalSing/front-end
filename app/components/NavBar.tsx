@@ -35,7 +35,7 @@ export function NavBar(props: NavBarProps) {
                     <Link
                         color={"foreground"}
                         className={`w-full text-2xl mb-8 text-darkGreen ${dmSerifText.className} ${index === 0 ? 'mt-12 mb-20' : ''}`}
-                        href={item === 'home' ? '/' : `show${item}`}
+                        href={item === 'Home' ? '/' : `show${item}`}
                         size="lg"
                     >
                         {item}

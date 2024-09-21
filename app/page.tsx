@@ -60,6 +60,7 @@ export default function Home() {
           userData ? <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
             :
             <>
+              <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />
               <h2 className={`${dmSerifText.className} text-lightGreen text-3xl `}>An error occurred. Please try again.</h2>
               <DynamicWidget />
             </>
