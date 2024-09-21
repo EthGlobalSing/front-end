@@ -8,7 +8,7 @@ import { dmSerifText } from "../shared/fonts";
 import { NavBar } from "../components/NavBar";
 import WebApp from "@twa-dev/sdk";
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
-import eruda from "eruda";
+// import eruda from "eruda";
 
 export default function ShowConfirmation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,9 +36,9 @@ export default function ShowConfirmation() {
     });
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            eruda.init()
-        }
+        // if (typeof window !== "undefined") {
+        //     eruda.init()
+        // }
     }, []);
 
     return (

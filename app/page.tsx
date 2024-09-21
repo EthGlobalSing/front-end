@@ -17,7 +17,7 @@ import {
   useTelegramLogin,
   useDynamicContext,
 } from "./lib/dynamic";
-import eruda from 'eruda';
+// import eruda from 'eruda';
 
 interface UserData {
   username?: string;
@@ -47,9 +47,9 @@ export default function Home() {
       setUserData(WebApp.initDataUnsafe.user as UserData)
     }
 
-    if (typeof window !== "undefined") {
-      eruda.init()
-    }
+    // if (typeof window !== "undefined") {
+    //   eruda.init()
+    // }
   }, [])
 
   useEffect(() => {
