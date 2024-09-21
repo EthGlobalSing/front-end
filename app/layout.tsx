@@ -7,7 +7,6 @@ import Providers from "./providers";
 import { Syne, DM_Serif_Text } from 'next/font/google'
 
 const syne = Syne({ subsets: ['latin'] });
-const dmSerifText = DM_Serif_Text({ weight:'400', subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: "MiniSafe",
