@@ -19,7 +19,7 @@ const config: Config = {
         lightBrown: '#E7AA50',
         darkRed: '#580C1F',
         mediumRed: "#74121D",
-        lowRed: '#A7333F',
+        lightRed: '#A7333F',
       },
     },
   },
