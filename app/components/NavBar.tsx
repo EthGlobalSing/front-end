@@ -10,7 +10,9 @@ interface NavBarProps {
 export function NavBar(props: NavBarProps) {
     const menuItems = [
         "Explore apps",
+        "Home",
         "Assets",
+        "Swap",
         "History",
         "Settings",
     ];
@@ -33,7 +35,7 @@ export function NavBar(props: NavBarProps) {
                     <Link
                         color={"foreground"}
                         className={`w-full text-2xl mb-8 text-darkGreen ${dmSerifText.className} ${index === 0 ? 'mt-12 mb-20' : ''}`}
-                        href={`show${item}`}
+                        href={item === 'home' ? '/' : `show${item}`}
                         size="lg"
                     >
                         {item}
