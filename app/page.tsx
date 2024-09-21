@@ -47,8 +47,9 @@ export default function Home() {
       setUserData(WebApp.initDataUnsafe.user as UserData)
     }
 
-    if (typeof window === "undefined") return;
-    eruda.init()
+    if (typeof window !== "undefined") {
+      eruda.init()
+    }
   }, [])
 
   useEffect(() => {

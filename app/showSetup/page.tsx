@@ -19,8 +19,9 @@ export default function ShowSetup({ }: SetupProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        if (typeof window === "undefined") return;
-        eruda.init()
+        if (typeof window !== "undefined") {
+            eruda.init()
+        }
     }, [])
     //const [safeWallets, setSafeWallets] = useState<Safe[]>();
 
