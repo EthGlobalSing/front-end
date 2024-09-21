@@ -36,6 +36,8 @@ export default function ShowConfirmation() {
     });
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
+
         eruda.init();
     }, []);
 
