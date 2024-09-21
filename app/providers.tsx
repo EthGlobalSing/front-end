@@ -7,13 +7,15 @@ import { dynamic_env } from "./environment/dynamic";
 
 const Providers: FC<any> = ({ children }) => {
   return (
-    <DynamicContextProvider
-      settings={{
-        environmentId: dynamic_env,
-      }}
-    >
-      <NextUIProvider>{children}</NextUIProvider>
-    </DynamicContextProvider>
+    <NextUIProvider>
+      <DynamicContextProvider
+        settings={{
+          environmentId: dynamic_env,
+        }}
+      >
+        {children}
+      </DynamicContextProvider>
+    </NextUIProvider>
   );
 };
 

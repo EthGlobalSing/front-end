@@ -39,7 +39,7 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    // TEST THE DYNAMIC CREATION / CONNECTION
+    // DYNAMIC WALLET CREATION / CONNECTION
     if (!sdkHasLoaded) return;
 
     const signIn = async () => {
