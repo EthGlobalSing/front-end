@@ -12,14 +12,23 @@ import { useRouter } from 'next/navigation';
 import { dmSerifText } from './shared/fonts';
 import { getAuthToken } from '@dynamic-labs/sdk-react-core';
 
+import {
+  DynamicWidget,
+  useTelegramLogin,
+  useDynamicContext,
+} from "./lib/dynamic";
 
 interface UserData {
   username?: string;
 }
 
 export default function Home() {
+  const { sdkHasLoaded, user } = useDynamicContext();
+  const { telegramSignIn } = useTelegramLogin();
+
   const [userData, setUserData] = useState<UserData | null>(null)
   const [isUserRegistered, setIsUserRegistered] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -29,12 +38,30 @@ export default function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    // TEST THE DYNAMIC CREATION / CONNECTION
+    if (!sdkHasLoaded) return;
+
+    const signIn = async () => {
+      if (!user) {
+        await telegramSignIn({ forceCreateUser: true });
+      }
+      setLoading(false);
+    };
+
+    signIn();
+  }, [sdkHasLoaded]);
+
   return (
     <>
       <main className={`bg-darkGreen p-10 min-h-screen flex justify-center`}>
         {userData ? <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
           :
-          <h2 className={`${dmSerifText.className} text-lightGreen text-3xl `}>An error occurred. Please try again.</h2>}
+          <>
+            <h2 className={`${dmSerifText.className} text-lightGreen text-3xl `}>An error occurred. Please try again.</h2>
+            <DynamicWidget />
+          </>
+        }
       </main>
     </>
   );
