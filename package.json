@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dynamic-labs/sdk-react-core": "^3.1.1",
     "@nextui-org/react": "^2.4.8",
     "@twa-dev/sdk": "^7.10.1",
     "lucide-react": "^0.445.0",

@@ -9,15 +9,12 @@ import { NavBar } from './components/NavBar';
 import { WelcomeDisplay } from './components/WelcomeDisplay';
 
 import { useRouter } from 'next/navigation';
+import { dmSerifText } from './shared/fonts';
+import { getAuthToken } from '@dynamic-labs/sdk-react-core';
 
 
 interface UserData {
-  id: number;
-  first_name: string;
-  last_name?: string;
   username?: string;
-  language_code: string;
-  is_premium?: boolean;
 }
 
 export default function Home() {
@@ -29,19 +26,19 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+
+
     if (WebApp.initDataUnsafe.user) {
       setUserData(WebApp.initDataUnsafe.user as UserData)
     }
-
-    if (true) // first use
-      router.push('/showAssets');
-
   }, [])
 
   return (
     <>
       <main className={`bg-darkGreen p-10 min-h-screen flex justify-center`}>
-        <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
+        {userData ? <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
+          :
+          <h2 className={`${dmSerifText.className} text-lightGreen text-3xl `}>An error occurred. Please try again.</h2>}
       </main>
     </>
   );
