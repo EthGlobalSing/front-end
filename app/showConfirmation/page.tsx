@@ -6,6 +6,22 @@ import { Button, CircularProgress, Link } from "@nextui-org/react";
 import Image from "next/image";
 import { dmSerifText } from "../shared/fonts";
 import { NavBar } from "../components/NavBar";
+import WebApp from "@twa-dev/sdk";
+import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
+import eruda from "eruda";
+
+
+function SignMessage() {
+    const { primaryWallet } = useDynamicContext();
+
+    const signMessage = async () => {
+        if (!primaryWallet) return;
+
+        const signature = await primaryWallet.signMessage('example');
+
+        console.log('signature', signature);
+    };
+}
 
 export default function ShowConfirmation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +35,10 @@ export default function ShowConfirmation() {
             address: "0xZJdhb28dJ"
         }
     });
+
+    useEffect(() => {
+        eruda.init();
+    }, []);
 
     return (
         <main className="bg-lightGreen">
@@ -38,8 +58,11 @@ export default function ShowConfirmation() {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <Link href='showSetup' className='w-full w-1/2'><Button className='bg-darkGreen text-lightGreen font-bold w-full'>Send</Button></Link>
-                        <Link href='/' className="text-darkGreen w-1/2 flex justify-center">Back</Link>
+                        <Link className='w-full w-1/2' onClick={() => {
+                            WebApp.HapticFeedback.impactOccurred('heavy');
+                            SignMessage();
+                        }}><Button className='bg-darkGreen text-lightGreen font-bold w-full'>Send</Button></Link>
+                        <Link href='/' className="text-darkGreen w-1/2 flex justify-center" onClick={() => { WebApp.HapticFeedback.impactOccurred('light'); }}>Back</Link>
                     </div>
                 </div>
             </div>

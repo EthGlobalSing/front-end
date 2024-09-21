@@ -27,7 +27,7 @@ export default function ShowSettings() {
             <>
                 <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="Settings" />
                 <div className='p-10 min-h-screen flex flex-col gap-12 items-center'>
-                    <Button className="mb-8 bg-darkRed text-lightGreen" disabled onClick={() => {
+                    <Button className="mb-8 bg-darkRed text-lightGreen" onClick={() => {
                         WebApp.HapticFeedback.impactOccurred('heavy');
                     }}>Revoke all access</Button>
                 </div>

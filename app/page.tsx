@@ -27,7 +27,7 @@ export default function Home() {
   const { sdkHasLoaded, user } = useDynamicContext();
   const { telegramSignIn } = useTelegramLogin();
 
-  const [isBiometricUserConnected, setIsBiometricUserConnected] = useState(false);
+  const [isBiometricUserConnected, setIsBiometricUserConnected] = useState(true);
   const [userData, setUserData] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(false);
 

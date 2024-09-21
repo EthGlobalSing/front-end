@@ -31,7 +31,7 @@ export default function ShowSetup({ }: SetupProps) {
     // }]
 
     return (<>
-        <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="MiniSafe" />
+        <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="Setup" />
         <main className={`p-10 bg-darkGreen min-h-screen`}>
             {loading ? <CircularProgress className='m-auto' color="default" aria-label="Loading..." /> :
                 // <SafeDetectedDisplay safeWallets={safeWallets} />
