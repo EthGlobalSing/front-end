@@ -4,8 +4,9 @@ import WebApp from '@twa-dev/sdk'
 import { useEffect, useState } from 'react'
 
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
-import { dmSerifText } from './shared/fonts';
+
 import { NavBar } from './components/NavBar';
+import { WelcomeDisplay } from './components/WelcomeDisplay';
 
 interface UserData {
   id: number;
@@ -30,9 +31,9 @@ export default function Home() {
 
   return (
     <>
-    <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
-    <main className='bg-darkGreen min-h-screen'>
-
+    {isUserRegistered && <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>}
+    <main className={`bg-darkGreen min-h-screen flex items-center justify-center`}>
+      <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
     </main>
     </>
   );
