@@ -10,21 +10,20 @@ import WebApp from "@twa-dev/sdk";
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
 import eruda from "eruda";
 
-
-function SignMessage() {
-    const { primaryWallet } = useDynamicContext();
-
-    const signMessage = async () => {
-        if (!primaryWallet) return;
-
-        const signature = await primaryWallet.signMessage('example');
-
-        console.log('signature', signature);
-    };
-}
-
 export default function ShowConfirmation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // function SignMessage() {
+    //     const { primaryWallet } = useDynamicContext();
+
+    //     const signMessage = async () => {
+    //         if (!primaryWallet) return;
+
+    //         const signature = await primaryWallet.signMessage('example');
+
+    //         console.log('signature', signature);
+    //     };
+    // }
 
     const [transaction, setTransaction] = useState({
         amountInUSD: 938.92,
