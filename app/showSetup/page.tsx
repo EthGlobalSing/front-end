@@ -5,14 +5,13 @@ import { NoSafeErrorDisplay } from "./components/NoSafeErrorDisplay";
 import { useEffect, useState } from 'react';
 import { SafeDetectedDisplay } from "./components/SafeDetectedDisplay";
 import { CircularProgress } from "@nextui-org/react";
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 
 interface SetupProps {
 
 }
 
-export default function Setup({ }: SetupProps) {
-
-
+export default function ShowSetup({ }: SetupProps) {
     const [loading, setLoading] = useState(false);
     //const [safeWallets, setSafeWallets] = useState<Safe[]>();
 
@@ -28,7 +27,7 @@ export default function Setup({ }: SetupProps) {
     return (<main className={`p-10 bg-darkGreen min-h-screen`}>
         {loading ? <CircularProgress className='m-auto' color="default" aria-label="Loading..." /> :
             //<SafeDetectedDisplay safeWallets={safeWallets} />
-            <></>
+            <DynamicWidget />
         }
         {/* <NoSafeErrorDisplay /> */}
     </main>);
