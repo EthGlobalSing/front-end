@@ -18,6 +18,7 @@ interface UserData {
 
 export default function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
+  const [isUserRegistered, setIsUserRegistered] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,6 +29,11 @@ export default function Home() {
   }, [])
 
   return (
+    <>
     <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+    <main className='bg-darkGreen min-h-screen'>
+
+    </main>
+    </>
   );
 }

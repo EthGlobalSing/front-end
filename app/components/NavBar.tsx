@@ -13,23 +13,23 @@ export function NavBar(props: NavBarProps) {
         "Settings",
       ];
 
-    return (<Navbar onMenuOpenChange={props.setIsMenuOpen} className={props.isMenuOpen ? 'bg-orange-50' : ''}>
+    return (<Navbar onMenuOpenChange={props.setIsMenuOpen} className={props.isMenuOpen ? 'bg-lightGreen' : 'bg-darkGreen'}>
     <NavbarContent>
       <NavbarMenuToggle
         aria-label={props.isMenuOpen ? "Close menu" : "Open menu"}
-        className="sm:hidden"
+        className={`sm:hidden ${props.isMenuOpen ? 'text-darkGreen' : 'text-white'}`}
       />
       {/* <NavbarBrand>
         <p className="font-bold text-inherit">MiniSafe</p>
       </NavbarBrand> */}
     </NavbarContent>
 
-    <NavbarMenu className='bg-orange-50'>
+    <NavbarMenu className='bg-lightGreen'>
       {menuItems.map((item, index) => (
         <NavbarMenuItem key={`${item}-${index}`}>
           <Link
             color={"foreground"}
-            className={`w-full text-2xl mb-8 text-lime-800 ${dmSerifText.className}`}
+            className={`w-full text-2xl mb-8 text-darkGreen ${dmSerifText.className}`}
             href="#"
             size="lg"
           >
