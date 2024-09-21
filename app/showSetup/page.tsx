@@ -32,6 +32,8 @@ export default function ShowSetup({ }: SetupProps) {
     //     addresses: ["0xZJdhb28dJ", "0xZJdhb28dJ"]
     // }]
 
+    if (typeof window === 'undefined') return <></>
+
     return (<>
         <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} windowName="Setup" />
         <main className={`p-10 bg-darkGreen min-h-screen`}>

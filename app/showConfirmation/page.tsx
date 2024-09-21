@@ -41,6 +41,8 @@ export default function ShowConfirmation() {
         // }
     }, []);
 
+    if (typeof window === 'undefined') return <></>
+
     return (
         <main className="bg-lightGreen">
             <div className='p-10 min-h-screen flex flex-col gap-12 items-center'>

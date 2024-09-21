@@ -21,6 +21,8 @@ export default function ShowSettings() {
         }
     }]);
 
+    if (typeof window === 'undefined') return <></>
+
     return (
         <main className="bg-darkGreen">
 
