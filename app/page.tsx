@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
     {isUserRegistered && <NavBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>}
-    <main className={`bg-darkGreen p-10 flex justify-center`}>
+    <main className={`bg-darkGreen p-10 min-h-screen flex justify-center`}>
       <WelcomeDisplay title={userData?.username ? `Hey ${userData?.username} 👋, welcome to MiniSafe.` : `Welcome to MiniSafe.`} />
     </main>
     </>
